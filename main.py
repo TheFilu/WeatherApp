@@ -1,3 +1,4 @@
+from dashboard.home import render_dashboard
 from services.openweather_api import get_weather
 from services.files import save_to_file
 from services.files import load_from_file
@@ -9,13 +10,15 @@ if not df.empty:
 else:
     print("Plik jest pusty")
 
-while True:
-    weather_record = get_weather()
+render_dashboard()
 
-    # [] dodane ze względu na to że, dataframe w funkcjo save_to_file potrzebuje mieć listę - nawet z jednym elementem
-    save_to_file([weather_record])
-
-    print(weather_record)
-
-    time.sleep(15)
+# while True:
+#     weather_record = get_weather()
+#
+#     # [] dodane ze względu na to że, dataframe w funkcjo save_to_file potrzebuje mieć listę - nawet z jednym elementem
+#     save_to_file([weather_record])
+#
+#     print(weather_record)
+#
+#     time.sleep(15)
 
