@@ -20,5 +20,4 @@ render_dashboard()
 #
 #     print(weather_record)
 #
-#     time.sleep(15)
-
+#     time.sleep(1000)
