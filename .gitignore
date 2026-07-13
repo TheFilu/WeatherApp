@@ -1,5 +1,6 @@
-.venv
+.venv/
+__pycache__/
+*.pyc
 weather.xlsx
 warszawa_weather.csv
-__pycache__
 .idea
