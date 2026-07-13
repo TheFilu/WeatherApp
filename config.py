@@ -3,3 +3,9 @@ class AppConfig:
     API_CITY = 'Warszawa'
     FILE_PATH = "weather"
     FILE_EXTENSION = "xlsx"
+    DB_HOST = 'localhost'
+    DB_PORT = 3306
+    DB_USER = 'root'
+    DB_PASSWORD = '1234'
+    DB_NAME = 'cwiczenia'
+    

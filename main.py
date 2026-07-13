@@ -1,23 +1,21 @@
-from dashboard.home import render_dashboard
 from services.openweather_api import get_weather
 from services.files import save_to_file
-from services.files import load_from_file
+from dashboard.home import render_dashboard
 import time
+from services.mysql_db import create_weather_table, save_weather_record
 
-df = load_from_file()
-if not df.empty:
-    print(df)
-else:
-    print("Plik jest pusty")
+create_weather_table()
 
-render_dashboard()
+# render_dashboard()
+#
+while True:
+    weather_record = get_weather()
 
-# while True:
-#     weather_record = get_weather()
-#
-#     # [] dodane ze względu na to że, dataframe w funkcjo save_to_file potrzebuje mieć listę - nawet z jednym elementem
-#     save_to_file([weather_record])
-#
-#     print(weather_record)
-#
-#     time.sleep(1000)
+    # [] dodane ze względu na to że, dataframe w funkcjo save_to_file potrzebuje mieć listę - nawet z jednym elementem
+    save_to_file([weather_record])
+    save_weather_record(weather_record)
+
+    print("Odczyt zapisany")
+
+
+    time.sleep(10)
